@@ -11,3 +11,12 @@
   </ul>
 <% end %>
 
+<% content_for :aside do %>
+  <h1>Cozinhas</h1>
+  <ul>
+  <% @cuisines.each do |cuisine| %>
+    <li><%= link_to cuisine.name, cuisine %></li>
+  <% end %>
+  </ul>
+<% end %>
+

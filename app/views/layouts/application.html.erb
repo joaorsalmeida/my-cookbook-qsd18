@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+    <aside>
+      <%= yield :aside %>
+    </aside>
   </body>
 </html>
