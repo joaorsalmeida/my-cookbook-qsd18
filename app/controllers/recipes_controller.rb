@@ -13,8 +13,13 @@ class RecipesController < ApplicationController
     recipe_params = params.require(:recipe).permit(:title,
                                                 :recipe_type, :cuisine_id, :difficulty,
                                                 :cook_time, :ingredients, :method)
+    @cuisines = Cuisine.all
     @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    redirect_to @recipe
+    if @recipe.save
+      redirect_to @recipe
+    else
+      flash.now[:error] = 'Não foi possível salvar sua receita'
+      render :new
+    end
   end
 end

@@ -29,4 +29,20 @@ feature 'Visitor register recipe' do
     expect(page).to have_css('h3', text: 'Como Preparar')
     expect(page).to have_css('p', text:  'Misturar tudo e servir. Adicione limão a gosto.')
   end
+
+  scenario 'and does not fill all fields' do
+    #setup
+    #
+    #navegacao
+    visit root_path
+    click_on 'Enviar uma receita'
+
+    fill_in 'Título', with: ''
+
+    click_on 'Enviar'
+    #expectativas
+    expect(page).to have_css('div.error', text: 'Não foi possível salvar sua receita')
+    expect(page).to have_css('div.error', text: 'Título não pode ficar em branco')
+    expect(page).to have_css('div.error', text: 'Cozinha')
+  end
 end
