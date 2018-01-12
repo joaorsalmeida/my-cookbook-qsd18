@@ -3,6 +3,7 @@ pt-BR:
     models:
       recipe: Receita
       cuisine: Cozinha
+      user: Usuário
     attributes:
       recipe:
         title: "Título"
@@ -11,3 +12,6 @@ pt-BR:
         cuisine: "Cozinha"
       cuisine:
         name: "Nome"
+      user:
+        email: "Email"
+        password: "Senha"

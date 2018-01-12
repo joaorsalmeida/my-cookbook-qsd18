@@ -2,14 +2,9 @@
 <p><%= I18n.translate('site_description') %></p>
 <%= I18n.localize(Time.zone.now) %>
 <%= link_to 'Enviar uma receita', new_recipe_path %>
-<% @recipes.each do |recipe| %>
-  <h1><%= link_to(recipe.title, recipe) %></h1>
-  <ul>
-    <li><%= recipe.recipe_type %></li>
-    <li><%= recipe.cuisine.name %></li>
-    <li><%= recipe.difficulty %></li>
-    <li><%= recipe.cook_time %> minutos</li>
-  </ul>
+
+<% @recipes.each do |r| %>
+  <%= render r %>
 <% end %>
 
 <% content_for :aside do %>

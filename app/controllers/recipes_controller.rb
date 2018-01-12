@@ -30,6 +30,12 @@ class RecipesController < ApplicationController
     redirect_to @recipe
   end
 
+  def search
+    search_term = "%#{params[:q]}%"
+    @results = Recipe.where('title LIKE ? or ingredients LIKE ?', search_term, search_term)
+    flash.now[:alert] = "Nenhuma receita encontrada" unless @results.any?
+  end
+
   private
 
   def recipe_params
